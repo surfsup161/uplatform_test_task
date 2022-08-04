@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package model;
+
+option go_package = "github.com/barmaglot13/test_task;model";
+
+message User {
+  string id = 1;
+  string name = 2;
+}
+
+message SetUserRequest {
+  User user = 1;
+}
+
+message SetUserResponse {
+  User user = 1;
+}
+
+message GetUserRequest {
+  string id = 1;
+}
+
+message GetUserResponse {
+  User user = 1;
+}
+
+message DeleteUserRequest {
+  string id = 1;
+}
+
+message DeleteUserResponse {
+  string id = 1;
+}
+
+service UserService {
+  rpc Set (SetUserRequest) returns (SetUserResponse);
+  rpc Get (GetUserRequest) returns (GetUserResponse);
+  rpc Delete (DeleteUserRequest) returns (DeleteUserResponse);
+}
